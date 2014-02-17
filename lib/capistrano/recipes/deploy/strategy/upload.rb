@@ -25,10 +25,18 @@ module Capistrano
         end
 
         private
+          def filename
+            #@filename ||= File.join(File.basename(configuration[:release_path]), configuration[:repository])
+            @filename ||= File.expand_path(configuration[:repository], Dir.pwd)
+          end
+          def remote_filename
+            @remote_filename ||= File.join(configuration[:release_path], configuration[:repository])
+          end
           # Distributes the file to the remote hosts.
           def distribute!
             args = [ filename, remote_filename ]
             args << { :via => configuration[:copy_via] } if configuration[:copy_via]
+            run "mkdir #{configuration[:release_path]}"
             upload(*args)
           end
       end

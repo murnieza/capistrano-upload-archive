@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name          = "capistrano-upload-archive"
-  gem.version       = "0.0.1"
+  gem.version       = "0.0.2"
   gem.authors       = ["Simonas Serlinskas"]
   gem.email         = ["simonas.serlinskas@gmail.com"]
   gem.homepage      = "https://github.com/saimaz/capistrano-upload-archive"
