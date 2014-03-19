@@ -26,12 +26,12 @@ module Capistrano
 
         private
           def filename
-            #@filename ||= File.join(File.basename(configuration[:release_path]), configuration[:repository])
             @filename ||= File.expand_path(configuration[:repository], Dir.pwd)
           end
           def remote_filename
-            @remote_filename ||= File.join(configuration[:release_path], configuration[:repository])
+            @remote_filename ||= File.join(configuration[:release_path], configuration[:remote_file_name])
           end
+
           # Distributes the file to the remote hosts.
           def distribute!
             args = [ filename, remote_filename ]
